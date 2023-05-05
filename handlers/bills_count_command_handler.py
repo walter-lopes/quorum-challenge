@@ -21,7 +21,6 @@ class GenerateBillsCountCommandHandler:
 
         for vote_result in command.vote_results:
             vote = votes_by_id_map[vote_result.vote_id]
-            legislator = legislators_by_id_map.get(vote_result.legislator_id)
 
             if vote.bill_id in bills_dto_by_id_map:
                 bill_dto = bills_dto_by_id_map[vote.bill_id]

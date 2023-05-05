@@ -1,4 +1,4 @@
-from typing import Set
+from typing import Set, List
 
 from model.legislator import Legislator
 from model.vote_result import VoteResult
@@ -19,8 +19,8 @@ class LegislatorSupportOpposeCountDto:
             self.num_opposed_bills += 1
 
     @staticmethod
-    def header() -> Set[str]:
-        return {"id", "name", "num_supported_bills", "num_opposed_bills"}
+    def header() -> List[str]:
+        return ["id", "name", "num_supported_bills", "num_opposed_bills"]
 
     def __iter__(self):
         return iter([self.id, self.name, self.num_supported_bills, self.num_opposed_bills])
