@@ -5,13 +5,18 @@ from handlers.bills_count_command_handler import GenerateBillsCountCommandHandle
 from handlers.generate_legislator_support_oppose_count_command_handler import \
     GenerateLegislatorSupportOpposeCountCommandHandler
 from infrastructure.csv_reader import CsvReader
+from infrastructure.csv_writer import CsvWriter
 from model.bill import Bill
 from model.legislator import Legislator
 from model.vote import Vote
 from model.vote_result import VoteResult
 
 if __name__ == '__main__':
-    reader = CsvReader(base_path="inputs/")
+
+    print('Starting vote calculating...')
+
+    reader = CsvReader()
+    writer = CsvWriter()
 
     legislators = reader.read("legislators.csv", Legislator)
     bills = reader.read("bills.csv", Bill)
@@ -19,7 +24,9 @@ if __name__ == '__main__':
     vote_results = reader.read("vote_results.csv", VoteResult)
 
     command = GenerateCountBillsCommand(legislators, bills, votes, vote_results)
-    GenerateBillsCountCommandHandler().handle(command)
+    GenerateBillsCountCommandHandler(writer).handle(command)
 
     command = GenerateLegislatorSupportOpposeCountCommand(legislators, vote_results)
-    GenerateLegislatorSupportOpposeCountCommandHandler().handle(command)
+    GenerateLegislatorSupportOpposeCountCommandHandler(writer).handle(command)
+
+    print('Finished')

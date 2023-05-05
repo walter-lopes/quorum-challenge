@@ -1,4 +1,4 @@
-num_supported_bills,id,num_opposed_bills,name
+name,id,num_supported_bills,num_opposed_bills
 400440,Rep. Don Young (R-AK-1),1,1
 17941,Rep. Jeff Van Drew (R-NJ-2),1,1
 400414,Rep. Fred Upton (R-MI-6),1,1

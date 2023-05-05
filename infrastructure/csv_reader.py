@@ -5,7 +5,7 @@ Type = TypeVar("Type")
 
 
 class CsvReader:
-    def __init__(self, base_path: str):
+    def __init__(self, base_path='inputs/'):
         self.base = base_path
 
     def read(self, csv_path: str,  type: Type) -> List[any]:

@@ -2,14 +2,14 @@ import csv
 import pathlib
 
 
-class CsvWrite:
+class CsvWriter:
 
-    def __init__(self):
-        self.base = 'outputs/'
+    def __init__(self, base_path='outputs/'):
+        self.base_path = base_path
 
     def write(self, data, file_path: str):
         try:
-            filename = self.base + file_path
+            filename = self.base_path + file_path
             path = pathlib.Path(filename)
             path.parent.mkdir(exist_ok=True)
             with open(filename, "w") as stream:

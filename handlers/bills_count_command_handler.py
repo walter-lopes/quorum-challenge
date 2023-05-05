@@ -1,12 +1,12 @@
 from commands.generate_count_bills_command import GenerateCountBillsCommand
 from dtos.bills_count_dto import BillsCountDto
-from infrastructure.csv_writer import CsvWrite
+from infrastructure.csv_writer import CsvWriter
 
 
 class GenerateBillsCountCommandHandler:
 
-    def __init__(self):
-        pass
+    def __init__(self, csv_writer: CsvWriter):
+        self.csv_writer = csv_writer
 
     def handle(self, command: GenerateCountBillsCommand):
 
@@ -31,4 +31,7 @@ class GenerateBillsCountCommandHandler:
                 bills_dto_by_id_map[bill.id] = BillsCountDto(bill, legislator,
                                                              vote_result)
 
-        CsvWrite().write(list(bills_dto_by_id_map.values()), 'bill.csv')
+        output_file = 'bill.csv'
+        self.csv_writer.write(list(bills_dto_by_id_map.values()), output_file)
+
+        print(f'File {output_file} generated')
