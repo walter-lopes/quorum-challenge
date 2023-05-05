@@ -3,8 +3,8 @@
 ### Deliverables
 
 You will be provided with a list of legislators, bills, votes, and vote results as specified above. You’ll be asked to answer the following questions:
-1. Foreverylegislatorinthedataset,howmanybillsdidthelegislatorsupport(votedforthe bill)? How many bills did the legislator oppose?
-2. Foreverybillinthedataset,howmanylegislatorssupportedthebill?Howmanylegislators opposed the bill? Who was the primary sponsor of the bill?
+1. For every legislator in the dataset,how many bills did the legislator support(voted for the bill)? How many bills did the legislator oppose?
+2. For every bill in the data set,how many legislators supported the bill?How many legislators opposed the bill? Who was the primary sponsor of the bill?
 
 
 ### Questions
@@ -12,7 +12,7 @@ You will be provided with a list of legislators, bills, votes, and vote results 
 1. Discuss your solution’s time complexity. What tradeoffs did you make?
 
 Answer: In this solution I've used the dictionary as my main data structure to search and combine data to create my responses. Using dictionary the time complexity 
-is O(i), once I have the key. But of course I needed to transform my list in dictionary which changed the time complexity to O(n) (linear).
+is O(i), once I have the key. But of course I needed to transform my list in dictionary which changed the time complexity to O(n) (linear). I prefered to transform csv data in list instead mapping directly in dictionary in the csv_reader, to me gain more flexibility and transform in dict on demand.
 
 
 2. How would you change your solution to account for future columns that might be requested, such as “Bill Voted On Date” or “Co-Sponsors”?
@@ -35,3 +35,13 @@ Answer: It will be easier by the way, it was not necessary to transform csv in l
 
 4. How long did you spend working on the assignment?
 Answer: 2 hours
+
+
+### Usage
+
+To run this project is pretty simple. Navigate to root path and run the following command
+
+
+```
+python main.py
+```
