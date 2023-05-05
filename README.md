@@ -39,9 +39,11 @@ Answer: 2 hours
 
 ### Usage
 
-To run this project is pretty simple. Navigate to root path and run the following command
+To run this project is pretty simple. Navigate to the root path and run the following command
 
 
 ```
 python main.py
 ```
+
+
