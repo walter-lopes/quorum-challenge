@@ -1,6 +1,6 @@
 class Bill:
 
-    def __init__(self, id: int, title: str, primary_sponsor):
+    def __init__(self, id: int, title: str, sponsor_id: int):
         self.id = int(id)
         self.title = title
-        self.primary_sponsor = primary_sponsor
+        self.sponsor_id = int(sponsor_id)

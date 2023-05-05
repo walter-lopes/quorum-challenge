@@ -7,12 +7,12 @@ from model.vote_result import VoteResult
 
 class BillsCountDto:
 
-    def __init__(self, bill: Bill, legislator: Legislator, vote_result: VoteResult):
+    def __init__(self, bill: Bill, vote_result: VoteResult, primary_sponsor: Legislator=None):
         self.opposer_count = 0
         self.supporter_count = 0
         self.id = bill.id
         self.title = bill.title
-        self.primary_sponsor = legislator.name if legislator else 'Unknown'
+        self.primary_sponsor = primary_sponsor.name if primary_sponsor else 'Unknown'
         self.update_votes(vote_result)
 
     def update_votes(self, vote_result: VoteResult):

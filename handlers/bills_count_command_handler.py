@@ -28,8 +28,8 @@ class GenerateBillsCountCommandHandler:
                 bill_dto.update_votes(vote_result)
             else:
                 bill = bills_by_id[vote.bill_id]
-                bills_dto_by_id_map[bill.id] = BillsCountDto(bill, legislator,
-                                                             vote_result)
+                primary_sponsor = legislators_by_id_map.get(bill.sponsor_id)
+                bills_dto_by_id_map[bill.id] = BillsCountDto(bill, vote_result, primary_sponsor)
 
         output_file = 'bill.csv'
         self.csv_writer.write(list(bills_dto_by_id_map.values()), output_file)
